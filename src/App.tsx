@@ -1,5 +1,7 @@
 import React from 'react';
-import MyForm from './MyForm';
+import Counter from './compontents/Counter';
+import MyForm from './compontents/MyForm';
+import ReducerSample from './compontents/ReducerSample';
 
 const App: React.FC = () =>{
   const onSubmit = (form: {name:string, description: string}) => {
@@ -7,9 +9,7 @@ const App: React.FC = () =>{
   };
 
   return (
-    <>
-      <MyForm onSubmit={onSubmit} />
-    </>
+    <ReducerSample />
   );
 }
 

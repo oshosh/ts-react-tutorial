@@ -15,3 +15,9 @@
     ReducerSample.tsx
    ```
  - https://blog.naver.com/qhanfckwsmsd/222517646382
+
+## TS + Hooks - Context API 간단 구현 예제
+  ```
+   ContextAPISample.tsx (SampleContext에서 구현한 cutomHook 적용 예제 - state로 값 반환, dispatch를 통한 action data 객체 전달 )
+   SampleContext.tsx    (contextAPI 예제 및 state, dispatch customHook)
+  ```

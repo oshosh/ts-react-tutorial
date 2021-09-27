@@ -1,15 +1,15 @@
 import React from 'react';
-import Counter from './compontents/Counter';
-import MyForm from './compontents/MyForm';
-import ReducerSample from './compontents/ReducerSample';
+import ContextAPISample from './compontents/ContextAPISample';
+import { SampleProvider } from './compontents/SampleContext';
 
 const App: React.FC = () =>{
-  const onSubmit = (form: {name:string, description: string}) => {
-    console.log(form);
-  };
 
   return (
-    <ReducerSample />
+    <>
+      <SampleProvider>  
+          <ContextAPISample />
+      </SampleProvider> 
+    </>
   );
 }
 

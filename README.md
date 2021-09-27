@@ -22,3 +22,30 @@
    SampleContext.tsx    (contextAPI 예제 및 state, dispatch customHook)
   ```
   - https://blog.naver.com/qhanfckwsmsd/222518558326
+
+## TS + Hooks - Redux 모듈 적용하기
+ ```
+ Counter 만들기, Todolist 만들기
+ 
+ compontents2
+ Counter.tsx
+ 
+ container
+ CounterContainer.tsx
+ 
+ compontents2
+ 1. TodoInsert.tsx 
+ 2. TodoItem.tsx
+ 3. TodoList.tsx
+ 
+ container
+ 1. TodoApp.tsx
+ 
+ modules (reducer + combineReducers) 
+ 1. todos.ts
+ 2. coutner.ts
+ 2. index.ts
+ 
+ app.js
+ ```
+  - https://blog.naver.com/qhanfckwsmsd/222518753079

@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TodoInsert from '../compontents2/TodoInsert';
 import TodoList from '../compontents2/TodoList';
-import { RootState } from '../modules';
-import { addTodo, removeTodo, toggleTodo } from '../modules/todos';
+import { RootState } from '../modules_typeSafeAction';
+import { addTodo, removeTodo, toggleTodo } from '../modules_typeSafeAction/todos';
 
 function TodoApp() {
     const todos = useSelector((state: RootState)=> state.todos)

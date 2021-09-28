@@ -54,7 +54,10 @@
  - https://blog.naver.com/qhanfckwsmsd/222519689574
 
 ## typesafe-actions을 활용한 커스텀 createReducer - velopert님 프로젝트에서 사용 방법 가져옴
+ - redux를 action, reducer를 모듈화 하기보다 duck 패턴을 이용하더라도 코드가 많이 축약되어 한눈에 보기 좋음
  ```
+ lib/util
+ 
  export type Handlers<T> = {
     [type: string]: (state: T, action: any) => T;
 };
@@ -82,12 +85,7 @@ import { deprecated, ActionType } from "typesafe-actions";
 import { createReducer, updateKey } from '../lib/util'
 const { createStandardAction } = deprecated;
 
-const INCREASE = 'counter/INCREASE';
-const DECREASE = 'counter/DECREASE';
 const INCREASE_BY = 'counter/INCREASE_BY';
-
-export const increase = createStandardAction(INCREASE)();
-export const decrease = createStandardAction(DECREASE)();
 export const increaseBy = createStandardAction(INCREASE_BY)<number>();
 
 type CounterState = {
@@ -96,9 +94,6 @@ type CounterState = {
 const initialState: CounterState = {
     count: 0
 }
-
-const actions = { increase, decrease, increaseBy }
-type CounterAction = ActionType<typeof actions>;
 
 const counter = createReducer({
     [INCREASE_BY]: (state, action: ReturnType<typeof increaseBy>) =>

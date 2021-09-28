@@ -49,3 +49,59 @@
  app.js
  ```
   - https://blog.naver.com/qhanfckwsmsd/222518753079
+
+## TS + Hooks - redux + typesafe-actions
+ - https://blog.naver.com/qhanfckwsmsd/222519689574
+
+## typesafe-actions을 활용한 커스텀 createReducer - velopert님 프로젝트에서 사용 방법 가져옴
+ ```
+ export type Handlers<T> = {
+    [type: string]: (state: T, action: any) => T;
+};
+
+export function createReducer<S>(handlers: Handlers<S>, initialState: S) {
+    return (state: S = initialState, action: any) => {
+        const handler = handlers[action.type];
+        if (!handler) return state;
+        return handler(state, action);
+    };
+}
+
+export function updateKey<S, K extends keyof S>(
+    state: S,
+    key: K,
+    value: S[K],
+): S {
+    return {
+        ...state,
+        [key]: value,
+    };
+}
+
+import { deprecated, ActionType } from "typesafe-actions";
+import { createReducer, updateKey } from '../lib/util'
+const { createStandardAction } = deprecated;
+
+const INCREASE = 'counter/INCREASE';
+const DECREASE = 'counter/DECREASE';
+const INCREASE_BY = 'counter/INCREASE_BY';
+
+export const increase = createStandardAction(INCREASE)();
+export const decrease = createStandardAction(DECREASE)();
+export const increaseBy = createStandardAction(INCREASE_BY)<number>();
+
+type CounterState = {
+    count: number
+}
+const initialState: CounterState = {
+    count: 0
+}
+
+const actions = { increase, decrease, increaseBy }
+type CounterAction = ActionType<typeof actions>;
+
+const counter = createReducer({
+    [INCREASE_BY]: (state, action: ReturnType<typeof increaseBy>) =>
+        updateKey(state, 'count', action.payload),
+}, initialState)
+ ```

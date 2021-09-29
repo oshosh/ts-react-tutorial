@@ -1,15 +1,16 @@
-import React from 'react';
-import CounterContainer from './container/CounterContainer';
-import TodoApp from './container/TodoApp';
+import React from "react";
+import CounterContainer from "./container/CounterContainer";
+import GithubProfileLoader from "./container/GithubProfileLoader";
+import TodoApp from "./container/TodoApp";
 
-const App: React.FC = () =>{
-
+const App: React.FC = () => {
   return (
     <>
-      <TodoApp />
-      <CounterContainer />
+      {/* <TodoApp />
+      <CounterContainer /> */}
+      <GithubProfileLoader />
     </>
   );
-}
+};
 
 export default App;
